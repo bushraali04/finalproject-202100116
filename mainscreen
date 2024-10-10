@@ -1,0 +1,65 @@
+import 'package:digi_tooth/Register.dart';
+import 'package:digi_tooth/Settings.dart';
+import 'package:flutter/material.dart';
+
+
+class mainscreen extends StatelessWidget {
+  const mainscreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Main Screen'),
+        backgroundColor: Colors.blueGrey,
+      ),
+      body: Column(
+        children: [
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text('Digital Tooth'),
+            ),
+          ),
+        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+              child: Text('Information'),
+            ),
+            ListTile(
+              leading: Icon(Icons.how_to_reg),
+              title: const Text('Register'),
+              onTap: (){
+                Navigator.push(context,
+                 MaterialPageRoute(builder: (context)=>register()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: const Text('Settings'),
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>settings()));
+              },
+            ),
+          ],
+        ),
+      ),
+      
+      floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add, color: Colors.blueGrey,),
+          onPressed: (){
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context)=>register()));
+          }
+      ),
+    );
+  }
+}

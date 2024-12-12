@@ -1,0 +1,67 @@
+import 'package:digi_tooth/appointments.dart';
+import 'package:digi_tooth/teleconsultation.dart';
+import 'package:flutter/material.dart';
+
+class contactinformation extends StatelessWidget {
+  const contactinformation({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: Icon(Icons.question_mark),
+        title: Text("Details"),
+      ),
+      body: Column(
+        children: [
+        Center(child: Text("Elite Dental Clinic", style: TextStyle(fontSize: 25))),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Located along Kafue Road, Woodlands and East Park mall, elite dental clinic provides high-quality dental care and treatment for individuals and the whole family.",style: TextStyle(fontSize: 17),),
+          ),
+          Text(""),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text("Contact us on: +260 000 000 000", style: TextStyle(fontSize: 17)),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("The dental clinic provides treatments from simple tooth extractions to complex jawbone and implantation procedures", style: TextStyle(fontSize: 17)),
+          ),
+          Row(
+            children: [
+              TextButton(
+                onPressed: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>appointments()),
+                  );
+                },
+                child: Text('Click here to book an appointment', style: TextStyle(fontSize: 17),),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("You can also view and teleconsult our dental professionals from anywhere around Zambia, at anytime", style: TextStyle(fontSize: 17),),
+          ),
+          Row(
+            children: [
+              TextButton(
+                onPressed: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>teleconsultation()),
+                  );
+                },
+                child: Text('Click here to Teleconsult', style: TextStyle(fontSize: 17),),
+              ),
+            ],
+          ),
+      ],
+      ),
+    );
+  }
+}

@@ -1,0 +1,214 @@
+import 'package:digi_tooth/mainscreen.dart';
+import 'package:flutter/material.dart';
+
+class register extends StatelessWidget {
+  const register({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      routes: {
+        '/details': (context) => mainscreen()
+      },
+      home: Scaffold(
+        appBar: AppBar(
+          title: Center(child: Text('Register ')),
+          backgroundColor: Colors.blueGrey,
+        ),
+        body: const MyCustomForm(),
+      ),
+    );
+  }
+}
+
+class MyCustomForm extends StatefulWidget {
+  const MyCustomForm({super.key});
+
+  @override
+  MyCustomFormState createState() {
+    return MyCustomFormState();
+  }
+}
+
+class MyCustomFormState extends State<MyCustomForm> {
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  TextEditingController patientname = TextEditingController();
+  TextEditingController patientage = TextEditingController();
+  TextEditingController patientsurname = TextEditingController();
+  TextEditingController dob = TextEditingController();
+  TextEditingController condition = TextEditingController();
+
+
+  void_submitForm() {}
+
+  String? validateName(String value) {
+    if (value.isEmpty) {
+      return 'please enter your name';
+    }
+    return null;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Tooltip(
+                message: 'Expense Picture',
+                child: TextButton(
+                  onPressed: () {},
+                  child: Icon(
+                    Icons.donut_small,
+                    color: Colors.blueGrey,
+                    size: 50,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 80,
+              child: Padding(
+                padding: EdgeInsets.all(14.0),
+                child: TextFormField(
+                  controller: patientname,
+                  keyboardType: TextInputType.name,
+                  decoration: InputDecoration(
+                    labelText: 'Patient Name',
+                    border: OutlineInputBorder(),
+                  ),
+                  validator: (value){
+                    if (value==null || value.isEmpty){
+                      return 'please enter patients name';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 80,
+              child: Padding(
+                padding: EdgeInsets.all(14.0),
+                child: TextFormField(
+                  controller: patientsurname,
+                  keyboardType: TextInputType.name,
+                  decoration: InputDecoration(
+                    labelText: 'Patient Surname',
+                    border: OutlineInputBorder(),
+                  ),
+                  validator: (value){
+                    if (value==null || value.isEmpty){
+                      return 'please enter patients surname';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 80,
+              child: Padding(
+                padding: EdgeInsets.all(14.0),
+                child: TextFormField(
+                  controller: patientage,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    labelText: 'Patient Age',
+                    border: OutlineInputBorder(),
+                  ),
+                  validator: (value){
+                    if (value==null || value.isEmpty){
+                      return 'please enter patients age';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 80,
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: TextFormField(
+                  controller: dob,
+                  keyboardType: TextInputType.datetime,
+                  decoration: InputDecoration(
+                    labelText: 'Date Of Birth',
+                    border: OutlineInputBorder(),
+                  ),
+                  validator: (value){
+                    if (value==null || value.isEmpty){
+                      return 'please enter DOB';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 80,
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: TextFormField(
+                  controller: condition,
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(
+                    labelText: 'Previous Conditions',
+                    border: OutlineInputBorder(),
+                  ),
+                  validator: (value){
+                    if (value==null || value.isEmpty){
+                      return 'please enter any previous conditions';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Text('Gender:'),
+                  Checkbox(
+                      value: false,
+                      onChanged: (value){
+                        print("Male");
+                      }),
+                  Text("Male"),
+                  Checkbox(
+                      value: false,
+                      onChanged: (value){
+                        print("Female");
+                      }),
+                  Text("Female")
+                ],
+              ),
+            ),
+              Center(
+              child: ElevatedButton(
+              onPressed: (){
+              if (_formKey.currentState!.validate()){
+              ScaffoldMessenger.of(context).showSnackBar(
+               const SnackBar(content: Text('Processing Data')),
+               );
+              print('Firstname is:'+patientname.text.toString());
+              print('Surname is:'+patientsurname.text.toString());
+              print('Age is:'+patientage.text.toString());
+              print('DOB is:'+dob.text.toString());
+              print('Conditions is:'+condition.text.toString());
+              Navigator.push(context,
+              MaterialPageRoute(builder: (context)=>mainscreen()));
+              }
+            },
+              child: const Text('Register'),
+              ),
+              ),
+          ],
+      ),
+    );
+  }
+}

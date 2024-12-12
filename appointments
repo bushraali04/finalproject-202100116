@@ -1,0 +1,215 @@
+import 'package:digi_tooth/mainscreen.dart';
+import 'package:flutter/material.dart';
+
+class appointments extends StatelessWidget {
+  const appointments({super.key});
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: Icon(Icons.horizontal_distribute),
+        title: Text('Appointments'),
+      ),
+      body: Column(
+        children:[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("You can schedule an appointment and see upcoming appointments here"),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Select Appointment Date:"),
+          ),
+          Row(
+            children: [
+              Center(
+                child: Tooltip(
+                  message: 'My Account',
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.date_range,
+                      size: 50,
+                    ),
+                  ),
+                ),
+              ),
+              Text('04.10'),
+              Center(
+                child: Tooltip(
+                  message: 'date',
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.date_range,
+                      size: 50,
+                    ),
+                  ),
+                ),
+              ),
+              Text('05.10'),
+              Center(
+                child: Tooltip(
+                  message: 'My Account',
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.date_range,
+                      size: 50,
+                    ),
+                  ),
+                ),
+              ),
+              Text('06.10'),
+            ],
+          ),
+          Row(
+            children: [
+              Center(
+                child: Tooltip(
+                  message: 'My Account',
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.date_range,
+                      size: 50,
+                    ),
+                  ),
+                ),
+              ),
+              Text('07.10'),
+              Center(
+                child: Tooltip(
+                  message: 'date',
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.date_range,
+                      size: 50,
+                    ),
+                  ),
+                ),
+              ),
+              Text('08.10'),
+              Center(
+                child: Tooltip(
+                  message: 'My Account',
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.date_range,
+                      size: 50,
+                    ),
+                  ),
+                ),
+              ),
+              Text('09.10'),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(""),
+          ),
+          Text('Please Select Appointment Time:'),
+          Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Row(
+              children: [
+                Text('9-10 hours'),
+                Checkbox(
+                    value: false,
+                    onChanged: (value){
+                      print("9-10");
+                    }),
+                Text('14-15 hours'),
+                Checkbox(
+                    value: false,
+                    onChanged: (value){
+                      print("14-15");
+                    }),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Row(
+              children: [
+                Text('10-11 hours'),
+                Checkbox(
+                    value: false,
+                    onChanged: (value){
+                      print("Enable Dark Mode");
+                    }),
+                Text('15-16 hours'),
+                Checkbox(
+                    value: false,
+                    onChanged: (value){
+                      print("Enable Dark Mode");
+                    }),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Row(
+              children: [
+                Text('11-12 hours'),
+                Checkbox(
+                    value: false,
+                    onChanged: (value){
+                      print("Enable Dark Mode");
+                    }),
+                Text('16-17 hours'),
+                Checkbox(
+                    value: false,
+                    onChanged: (value){
+                      print("Enable Dark Mode");
+                    }),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextField(
+              keyboardType: TextInputType.text,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Enter Patient Name',
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Text('Choose Treatment'),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: DropdownButton<String>(
+                    items: <String>['Extraction','Filling','Root canal','Cleaning','Consultation'].map((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (_) {},
+                  ),
+                ),
+              ],
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context)=>mainscreen()),
+              );
+            },
+            child: Text('Book'),
+          ),
+        ],
+      ),
+    );
+  }
+}

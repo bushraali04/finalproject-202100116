@@ -36,28 +36,59 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.white,
         title: Center(child: Text('DigitalTooth'))
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
         child: Column(
           children: [
-        Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(context,
-              MaterialPageRoute(builder: (context)=>mainscreen()),
-            );
-          },
-          child: Text('mainscreen'),
+            Center(
+              child: Tooltip(
+                message: 'LOGIN',
+                child: TextButton(
+                  onPressed: () {},
+                  child: Icon(
+                    Icons.local_hospital,
+                    size: 50,
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: TextField(
+                decoration: InputDecoration(
+                    label: Text('Username')
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: TextField(
+                decoration: InputDecoration(
+                    label: Text('Password')
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>mainscreen()),
+                  );
+                },
+                child: Text('Login'),
+              ),
+            ),
+            TextButton(
+              onPressed: (){},
+              child: Text('Sign in using Google'),
+            ),
+          ],
         ),
-       ),
-       ]
-       ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
+

@@ -1,0 +1,63 @@
+mport 'package:digi_tooth/appointments.dart';
+import 'package:flutter/material.dart';
+
+class cavity extends StatelessWidget {
+  const cavity({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Cavity"),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Text("This is a hole in the tooth caused when bacteria already in the mouth interacts with sugar. It is the most common dental disease and is usually seen in children around the ages 4 to 9 years. "),
+            Text("Almost 90 % of the population have had cavity at least once in their life"),
+            Text(""),
+            Row(
+              children: [
+                Text("Early signs and symptoms of cavities:", style: TextStyle(fontSize: 17)),
+              ],
+            ),
+            Text("Cavities first appear as small light brown spots on the enamel. These spots then deepen as the bacteria feeds on the sugar debris and create holes in the teeth. Other symptoms include light or sharp pain when eating something sweet, or drinking something hot or cold"),
+            Text(""),
+            Row(
+              children: [
+                Text("Diagnosis & Treatment:", style: TextStyle(fontSize: 17)),
+              ],
+            ),
+            Text("Visiting a dentist as soon as it is noticed is the best early treatment. Dental professionals will carry out fillings or root canals, in worse cases, an extraction might be needed"),
+            Text(""),
+            Row(
+              children: [
+                Text("Prevention:", style: TextStyle(fontSize: 17),),
+              ],
+            ),
+            Text("Brushing your teeth twice a day and abstain from consuming sweet foods especially before sleeping is the best prevention technique"),
+            Text(""),
+            Row(
+              children: [
+                Text("Need to cure your cavity?", style: TextStyle(fontSize: 17),),
+              ],
+            ),
+            Row(
+              children: [
+                TextButton(
+                  onPressed: (){
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context)=>appointments()),
+                    );
+                  },
+                  child: Text('Click here to book an appointment', style: TextStyle(fontSize: 17),),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

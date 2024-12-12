@@ -1,0 +1,59 @@
+import 'package:digi_tooth/appointments.dart';
+import 'package:flutter/material.dart';
+
+class plaque extends StatelessWidget {
+  const plaque({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Dental Plaque & Calculus"),
+      ),
+      body: Column(
+        children: [
+          Text("Dental plaque is non-mineralised, stick mass of bacteria that forms on a tooth’s surface also called enamel. It accumulates when substances containing refined carbohydrates (starches and sugars) are routinely left on the teeth. Happens due to consumption of high-sugar diet and lack of cleansing of the teeth"),
+          Text(""),
+          Row(
+            children: [
+              Text("Early signs and symptoms:", style: TextStyle(fontSize: 17)),
+            ],
+          ),
+          Text("Bad breath, yellow or pale teeth and bleeding gums after brushing. Teeth might start feeling fuzzy and could lead to bad, copper taste in the mouth"),
+          Text(""),
+          Row(
+            children: [
+              Text("Diagnosis & Treatment:", style: TextStyle(fontSize: 17)),
+            ],
+          ),
+          Text("Visiting a dentist as soon as it is noticed is the best early treatment. Dental professionals will carry out fillings and cleansing of tooth to remove the plaque formed."),
+          Text(""),
+          Row(
+            children: [
+              Text("Prevention:", style: TextStyle(fontSize: 17),),
+            ],
+          ),
+          Text("Brushing your teeth twice a day, flossing and abstaining from consumption of sweet foods especially before sleeping is the best prevention technique. Make use of high-flouride tooth-pastes and hard bristled brushes"),
+          Text(""),
+          Row(
+            children: [
+              Text("Need to have a tooth cleansing done?", style: TextStyle(fontSize: 17),),
+            ],
+          ),
+          Row(
+            children: [
+              TextButton(
+                onPressed: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>appointments()),
+                  );
+                },
+                child: Text('Click here to book an appointment', style: TextStyle(fontSize: 17),),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}

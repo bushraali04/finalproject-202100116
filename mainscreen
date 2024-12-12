@@ -1,6 +1,12 @@
+import 'package:digi_tooth/Prescriptions.dart';
 import 'package:digi_tooth/Register.dart';
 import 'package:digi_tooth/Settings.dart';
+import 'package:digi_tooth/appointments.dart';
+import 'package:digi_tooth/contact%20prof%20info.dart';
+import 'package:digi_tooth/information.dart';
+import 'package:digi_tooth/teleconsultation.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 
 class mainscreen extends StatelessWidget {
@@ -15,10 +21,101 @@ class mainscreen extends StatelessWidget {
       ),
       body: Column(
         children: [
+          Text(""),
+          Text(''),
           Center(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text('Digital Tooth'),
+              child: Text('Digital Tooth',
+                  style: TextStyle(fontSize: 30),
+              ),
+            ),
+          ),
+          Text(""),
+          Text(""),
+          Text(""),
+          Center(
+            child: Text('Clinic Details:',
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+          Center(
+            child: Text('ELITE DENTAL CLINIC'),
+          ),
+          Center(
+            child: Text(
+                'Phone Number: +260 000 000 000',
+                style: TextStyle(fontSize: 15),
+            ),
+          ),
+          Center(
+            child: Text('Located in Lusaka'),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Center(
+              child: Text('At East Park Mall, First Floor, Entrance 2. Woodlands mall, ground floor & Along Kafue Road'),
+            ),
+          ),
+          Text(""),
+          Text(""),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Table(
+              border: TableBorder.all(),
+              children: [
+                TableRow(
+                    children: [
+                      Column(
+                          children:[
+                            Icon(Icons.account_box),
+                            Text('My Account')
+                          ]
+                      ),
+                      Column(
+                          children:[
+                            Icon(Icons.connect_without_contact),
+                            Text('Teleconsultation')
+                          ]
+                      ),
+                      Column(
+                          children:[
+                            Icon(Icons.horizontal_distribute),
+                            Text('Appointments'),
+                          ]
+                      ),
+                    ]
+                ),
+                TableRow(
+                    children: [
+                      Column(
+                          children:[
+                            Icon(Icons.how_to_reg),
+                            Text('Register')
+                          ]
+                      ),
+                      Column(
+                          children:[
+                            Icon(Icons.settings),
+                            Text('Settings')
+                          ]
+                      ),
+                      Column(
+                          children:[
+                            Icon(Icons.info_sharp),
+                            Text('Information'),
+                          ]
+                      ),
+                    ]
+                ),
+              ],
+            ),
+          ),
+          Text(""),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text('Use the button below to schedule an appointment with the clinic'),
             ),
           ),
         ],
@@ -29,7 +126,7 @@ class mainscreen extends StatelessWidget {
           children: [
             const DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.blueGrey,
             ),
               child: Text('Information'),
             ),
@@ -42,6 +139,30 @@ class mainscreen extends StatelessWidget {
               },
             ),
             ListTile(
+              leading: Icon(Icons.connect_without_contact),
+              title: const Text('Teleconsultation'),
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>teleconsultation()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.horizontal_distribute),
+              title: const Text('Appointments'),
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>appointments()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.medication),
+              title: const Text('Prescriptions'),
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>prescriptions()));
+              },
+            ),
+            ListTile(
               leading: Icon(Icons.settings),
               title: const Text('Settings'),
               onTap: (){
@@ -49,15 +170,31 @@ class mainscreen extends StatelessWidget {
                     MaterialPageRoute(builder: (context)=>settings()));
               },
             ),
+            ListTile(
+              leading: Icon(Icons.question_mark),
+              title: const Text('Details'),
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>contactinformation()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.info_sharp),
+              title: const Text('Information'),
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>information()));
+              },
+            ),
           ],
         ),
       ),
-      
+
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add, color: Colors.blueGrey,),
           onPressed: (){
             Navigator.push(context,
-                MaterialPageRoute(builder: (context)=>register()));
+                MaterialPageRoute(builder: (context)=>appointments()));
           }
       ),
     );

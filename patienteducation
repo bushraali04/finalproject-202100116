@@ -1,0 +1,124 @@
+import 'package:digi_tooth/Cavity.dart';
+import 'package:digi_tooth/Plaque.dart';
+import 'package:digi_tooth/crackedtooth.dart';
+import 'package:digi_tooth/periodontal.dart';
+import 'package:flutter/material.dart';
+
+class information extends StatelessWidget {
+  const information({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Dentistry"),
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Dentistry, also known as dental medicine and oral medicine, is the branch of medicine focused on the teeth, gums, and mouth. It consists of the study, diagnosis, prevention, management, and treatment of diseases, disorders, and conditions of the mouth."),
+          ),
+          Text(""),
+          Row(
+            children: [
+              Center(
+                child: Tooltip(
+                  message: '',
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.picture_in_picture_alt,
+                      size: 70,
+                    ),
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>cavity()),
+                  );
+                },
+                child: Text('Cavity'),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Center(
+                child: Tooltip(
+                  message: 'Cavity',
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.picture_in_picture_alt,
+                      size: 70,
+                    ),
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>periodontal()),
+                  );
+                },
+                child: Text('Gingivitis & Periodontal Disease'),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Center(
+                child: Tooltip(
+                  message: 'My Account',
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.picture_in_picture_alt,
+                      size: 70,
+                    ),
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>plaque()),
+                  );
+                },
+                child: Text('Dental Plaque & Calculus'),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Center(
+                child: Tooltip(
+                  message: 'My Account',
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.picture_in_picture_alt,
+                      size: 70,
+                    ),
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>crackedtooth()),
+                  );
+                },
+                child: Text('Cracked tooth Syndrome'),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+    
+  }
+}

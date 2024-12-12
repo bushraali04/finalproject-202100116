@@ -1,0 +1,115 @@
+import 'package:digi_tooth/mainscreen.dart';
+import 'package:flutter/material.dart';
+
+class teleconsultation extends StatelessWidget {
+  const teleconsultation({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Teleconsultation'),
+        backgroundColor: Colors.blueGrey,
+      ),
+      body:Column(
+        children: [
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Communicate with your Dentist of Choice"),
+            ),
+          ),
+           Center(
+             child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                          MaterialPageRoute(builder: (context)=>mainscreen()),
+                        );
+                      },
+                      child: Text('Chat with the dentist'),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                          MaterialPageRoute(builder: (context)=>mainscreen()),
+                        );
+                      },
+                      child: Text('Call the dentist'),
+                    ),
+                  ),
+                ],
+              ),
+           ),
+          Text(''),
+          Text(''),
+          Text('You can find more information about your dentist here:'),
+          Text(''),
+          Row(
+            children: [
+              Center(
+                child: Tooltip(
+                  message: 'My Account',
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.account_box,
+                      size: 50,
+                    ),
+                  ),
+                ),
+              ),
+              Text('Dr. Mwanza, Orthodontist'),
+            ],
+          ),
+          Text('Graduated in 2007, Dr. Mwanza has successfully treated patienst with misaligned teeth and specializes in implantations'),
+          Row(
+            children: [
+              Text("Email address: mwanza_93@gmail.com"),
+            ],
+          ),
+          Row(
+            children: [
+              Text("Contact Number: +260 000 000 000"),
+            ],
+          ),
+          Text(''),
+          Row(
+            children: [
+              Center(
+                child: Tooltip(
+                  message: 'My Account',
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.account_box,
+                      size: 50,
+                    ),
+                  ),
+                ),
+              ),
+              Text('Dr. Shaziya Ali, Dental Surgeon'),
+            ],
+          ),
+          Text('Graduated in 2010, Dr. Ali has successfully treated patienst from simple tooth extractions to implanting of caps and crowns'),
+          Row(
+            children: [
+              Text("Email address: shaziya77@gmial.com"),
+            ],
+          ),
+          Row(
+            children: [
+              Text("Contact Number: +260 000 000 000"),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}

@@ -1,0 +1,131 @@
+import 'package:digi_tooth/mainscreen.dart';
+import 'package:flutter/material.dart';
+
+class settings extends StatelessWidget {
+  const settings({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: Icon(Icons.settings),
+        title: Text('App Settings'),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Tooltip(
+              message: 'My Account',
+              child: TextButton(
+                onPressed: () {},
+                child: Icon(
+                  Icons.account_box,
+                  size: 50,
+                ),
+              ),
+            ),
+            Text("You can change your settings from here"),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Full Name',
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Surname',
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Email Address',
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                keyboardType: TextInputType.phone,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Phone Number',
+                ),
+              ),
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Text('Enable Dark Mode'),
+                      Checkbox(
+                          value: false,
+                          onChanged: (value){
+                            print("Enable Dark Mode");
+                          }),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Text('Registered'),
+                      Checkbox(
+                          value: false,
+                          onChanged: (value){
+                            print("Registered");
+                          }),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Text('Choose Language'),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: DropdownButton<String>(
+                      items: <String>['English UK', 'English US', 'French'].map((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (_) {},
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context)=>mainscreen()),
+                );
+              },
+              child: Text('Save Changes'),
+            ),
+          ],
+        ),
+      ),
+     );
+  }
+}

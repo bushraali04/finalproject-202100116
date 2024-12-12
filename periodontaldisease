@@ -1,0 +1,62 @@
+import 'package:digi_tooth/appointments.dart';
+import 'package:flutter/material.dart';
+
+class periodontal extends StatelessWidget {
+  const periodontal({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Gingivitis & Periodontal Disease"),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Text("Gingivitis is the mildest form of gum disease and causes gum inflamation. It is an early symptom of periodontal disease(PD). Periodontal Disease(PD) permanantly damages the gums and affects the jawbone as well. Periodontal disease is caused because of poor oral hygiene and can get worse by smoking or consuming a high-sugar diet"),
+            Text(""),
+            Row(
+              children: [
+                Text("Symptoms of PD:", style: TextStyle(fontSize: 17),),
+              ],
+            ),
+            Text("The usual symptoms are gum inflamation, bleeding gums and high levels of dental plaque and calculus. Other sympotms include persistent bad breath and pus between the gum and tooth"),
+            Text(""),
+            Row(
+              children: [
+                Text("Diagnosis & Treatment:", style: TextStyle(fontSize: 17)),
+              ],
+            ),
+            Text("Visiting a dentist as soon as it is noticed is the best early treatment. Dental professionals will carry out fillings or root canals, in worse cases, an extraction might be needed. Proper cleaning is needed for PD and medicines might be prescribed for the infection"),
+            Text(""),
+            Row(
+              children: [
+                Text("Prevention:", style: TextStyle(fontSize: 17),),
+              ],
+            ),
+            Text("Brushing your teeth twice a day, flossing and abstaining from consumption sweet foods especially before sleeping is the best prevention technique"),
+            Text(""),
+            Row(
+              children: [
+                Text("Need to cure the Gingivitis?", style: TextStyle(fontSize: 17),),
+              ],
+            ),
+            Row(
+              children: [
+                TextButton(
+                  onPressed: (){
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context)=>appointments()),
+                    );
+                  },
+                  child: Text('Click here to book an appointment', style: TextStyle(fontSize: 17),),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -1,0 +1,57 @@
+import 'package:digi_tooth/appointments.dart';
+import 'package:flutter/material.dart';
+
+
+class crackedtooth extends StatelessWidget {
+  const crackedtooth({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Cracked Tooth Syndrome"),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Text("It is another common syndrome, caused because of excessive grinding or clenching of teeth, called bruxism. Bruxism causes an internal crack in the tooth causing the whole tooth to crack into pieces. mild crecked teeth can be harmless and less painful, but a whole cracked tooth can cause pain with every bite"),
+            Text(""),
+            Row(
+              children: [
+                Text("Symptoms of Cracked tooth:", style: TextStyle(fontSize: 17),),
+              ],
+            ),
+            Text("Mild or severe pain in the tooth and gums while chewing. Physical broken tooth seen or felt, with excessive bleeding"),
+            Text(""),
+            Row(
+              children: [
+                Text("Diagnosis & Treatment:", style: TextStyle(fontSize: 17)),
+              ],
+            ),
+            Text("Visiting a dentist as soon as it is noticed is the best early treatment. Dental professionals will carry out an extraction to remove the teeth. Painkillers and injections might be given for extraction"),
+            Text(""),
+            Text(""),
+            Row(
+              children: [
+                Text("Need to extract a broken/cracked tooth?", style: TextStyle(fontSize: 17),),
+              ],
+            ),
+            Row(
+              children: [
+                TextButton(
+                  onPressed: (){
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context)=>appointments()),
+                    );
+                  },
+                  child: Text('Click here to book an appointment', style: TextStyle(fontSize: 17),),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
